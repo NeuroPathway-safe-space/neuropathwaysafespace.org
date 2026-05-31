@@ -3,49 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neuropathway Safe Space</title>
+    <title>MediSense™ | Greater Manchester NHS MVP</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page">
-      <header class="hero">
-        <div>
-          <p class="tag">Neuropathways Safe Space</p>
-          <h1>Early identification and lifelong support tracking.</h1>
-          <p class="subtitle">
-            Coordinate care plans, track community touchpoints, and support
-            neurodivergent learners across every milestone.
-          </p>
-          <div class="actions">
-            <button id="refresh" class="primary">Refresh insights</button>
-            <button id="create" class="ghost">Create check-in</button>
-          </div>
-        </div>
-        <div class="card">
-          <h2>Today at a glance</h2>
-          <ul>
-            <li><span id="pathway-count">0</span> active pathways</li>
-            <li><span id="checkin-count">0</span> recent check-ins</li>
-            <li>Care team pulse: <strong id="care-pulse">steady</strong></li>
-          </ul>
-        </div>
+      <header class="nhs-header">
+        <strong class="nhs-logo">NHS</strong>
+        <span>MediSense™ pilot dashboard</span>
       </header>
 
-      <main>
-        <section class="panel">
-          <div class="panel-header">
-            <h2>Pathway focus areas</h2>
-            <p>Stay aligned on the support tracks your community needs.</p>
+      <section class="hero">
+        <div>
+          <p class="tag">Greater Manchester Care Record connected MVP</p>
+          <h1>Safe, explainable admission care summaries in under 30 seconds.</h1>
+          <p class="subtitle">
+            MediSense™ compiles authorised records into a temporary clinician summary for nurses,
+            doctors and pharmacists. It supports clinical decision making and does not replace
+            professional judgement.
+          </p>
+          <div class="actions">
+            <button id="refresh" class="primary">Load latest summary</button>
+            <button id="admit" class="secondary">Simulate admission trigger</button>
+            <button id="discharge" class="danger">Run discharge kill switch</button>
           </div>
-          <div id="pathways" class="grid"></div>
+        </div>
+        <aside class="status-card" aria-label="MVP service status">
+          <h2>Admission status</h2>
+          <dl>
+            <div><dt>Target latency</dt><dd>&lt;10 seconds</dd></div>
+            <div><dt>Summary state</dt><dd id="summary-state">Loading</dd></div>
+            <div><dt>Source system</dt><dd>GM Care Record FHIR</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <main class="dashboard">
+        <section class="panel wide">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Patient snapshot</p>
+              <h2 id="patient-name">Information not available</h2>
+            </div>
+            <span class="clinical-badge">Clinical safety guarded</span>
+          </div>
+          <div id="snapshot" class="snapshot-grid"></div>
+          <p id="disclaimer" class="disclaimer"></p>
         </section>
 
         <section class="panel">
-          <div class="panel-header">
-            <h2>Recent check-ins</h2>
-            <p>Track the latest updates from learners, caregivers, and coaches.</p>
+          <div class="panel-header"><h2>Diagnoses</h2></div>
+          <div id="diagnoses" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h2>Medication summary</h2></div>
+          <div id="medications" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h2>Risks</h2></div>
+          <div id="risks" class="risk-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h2>Communication needs</h2></div>
+          <div id="communication" class="stack"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h2>What helps / does not help</h2></div>
+          <div class="two-column">
+            <div><h3>What helps</h3><div id="what-helps" class="stack"></div></div>
+            <div><h3>What does not help</h3><div id="what-does-not-help" class="stack"></div></div>
           </div>
-          <div id="checkins" class="stack"></div>
+        </section>
+
+        <section class="panel wide">
+          <div class="panel-header"><h2>Provenance and audit</h2></div>
+          <div id="provenance" class="source-list"></div>
         </section>
       </main>
     </div>
