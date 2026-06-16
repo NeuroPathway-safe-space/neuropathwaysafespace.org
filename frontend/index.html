@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuropathway Safe Space</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="tag">Neuropathways Safe Space</p>
+          <h1>Early identification and lifelong support tracking.</h1>
+          <p class="subtitle">
+            Coordinate care plans, track community touchpoints, and support
+            neurodivergent learners across every milestone.
+          </p>
+          <div class="actions">
+            <button id="refresh" class="primary">Refresh insights</button>
+            <button id="create" class="ghost">Create check-in</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Today at a glance</h2>
+          <ul>
+            <li><span id="pathway-count">0</span> active pathways</li>
+            <li><span id="checkin-count">0</span> recent check-ins</li>
+            <li>Care team pulse: <strong id="care-pulse">steady</strong></li>
+          </ul>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Pathway focus areas</h2>
+            <p>Stay aligned on the support tracks your community needs.</p>
+          </div>
+          <div id="pathways" class="grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Recent check-ins</h2>
+            <p>Track the latest updates from learners, caregivers, and coaches.</p>
+          </div>
+          <div id="checkins" class="stack"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
