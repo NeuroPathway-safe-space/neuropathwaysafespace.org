@@ -1,0 +1,34 @@
+{
+  "name": "neuropathway-ecosystem",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-assisted early identification and lifelong support ecosystem for neurodivergent people, families, schools, clinicians, and commissioners.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "check:neuro-ai": "node scripts/check-neuro-ai-contract.mjs",
+    "check:security": "node scripts/check-security-contract.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "next": "^15.0.3",
+    "openai": "^4.73.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.15.0",
+    "eslint-config-next": "^15.0.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
+  }
+}
