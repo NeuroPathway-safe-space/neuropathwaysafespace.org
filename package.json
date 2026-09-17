@@ -1,4 +1,8 @@
 {
+  "name": "neuropathway-safespace",
+  "version": "1.0.0",
+  "description": "NeuroPathway Safe Space — Early Identification & Lifelong Support Ecosystem",
+  "private": true
   "name": "neuropathway-ecosystem",
   "version": "0.1.0",
   "private": true,
