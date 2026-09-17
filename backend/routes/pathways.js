@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { pathways, checkins } from "../storage/data.js";
+import { sanitizeText } from "../middleware/security.js";
 
 const router = Router();
 
@@ -12,7 +13,10 @@ router.get("/checkins", (_req, res) => {
 });
 
 router.post("/checkins", (req, res) => {
-  const { memberName, focus, mood, nextStep } = req.body ?? {};
+  const memberName = sanitizeText(req.body?.memberName, 120);
+  const focus = sanitizeText(req.body?.focus, 300);
+  const mood = sanitizeText(req.body?.mood, 80);
+  const nextStep = sanitizeText(req.body?.nextStep, 500);
 
   if (!memberName || !focus) {
     return res.status(400).json({
